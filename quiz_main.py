@@ -42,7 +42,7 @@ def send_welcome(message):
     user_id = message.from_user.id
 
 
-    bot.send_message(admin_id, f"Пользователь {bot.get_chat(user_id).username, user_id} начал прохождение квиза")
+    
     bot.send_message(user_id, "Добро пожаловать\!" + '\U0001F44B' + "\nЭто чек\-лист от канала «Думай дыши твори»\. Пройдите его и узнайте какой у вас уровень энергии сейчас\, есть ли признаки выгорания\. Ответьте\, пожалуйста\, на 10 вопросов\: выберите да или нет\.", parse_mode="MarkdownV2")
     send_next_question(user_id)
 
@@ -132,8 +132,7 @@ def callback(call):
                                          types.InlineKeyboardButton(text="Запись на индивидуальную сессию",
                                                                     url="https://forms.gle/G9b9ahjs4Rk1FtXK7")))
 
-                bot.send_message(admin_id,
-                                 f"Пользователь {bot.get_chat(user_id).username, user_id} завершил квиз с {score} ответами 'да'.")
+                
                 cursor.execute('DELETE FROM users WHERE user_id = ?', (user_id,))
                 conn.commit()
             else:
