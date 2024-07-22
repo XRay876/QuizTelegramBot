@@ -1,0 +1,5 @@
+auth_data.py
+*.log
+.idea/
+__pycache__/
+quiz.db
